@@ -11,7 +11,6 @@ from keras import backend as K
 from keras.layers import Input
 from keras.models import Model
 from keras_frcnn import roi_helpers
-from google.colab.patches import cv2_imshow
 
 sys.setrecursionlimit(40000)
 
@@ -243,9 +242,10 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 
 	print('Elapsed time = {}'.format(time.time() - st))
 	print(all_dets)
-	try:
-		cv2.imshow('img', img)
-	except:		
-		cv2_imshow(img)
+	# try:
+		# cv2.imshow('img', img)
+	# except:
+		# from google.colab.patches import cv2_imshow
+		# cv2_imshow(img)
 	cv2.waitKey(0)
-	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
+	cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
