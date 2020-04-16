@@ -246,6 +246,5 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 		# cv2.imshow('img', img)
 	# except:
 		# from google.colab.patches import cv2_imshow
-		# cv2_imshow(img)
-	cv2.waitKey(0)
+		# cv2_imshow(img)	
 	cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
