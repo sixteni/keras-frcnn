@@ -17,7 +17,7 @@ from keras_frcnn.RoiPoolingConv import RoiPoolingConv
 from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
 
 def get_weight_path():
-    if image_data_format() == 'channels_first':
+    if K.image_data_format() == 'channels_first':
         return 'resnet50_weights_th_dim_ordering_th_kernels_notop.h5'
     else:
         return 'resnet50_weights_tf_dim_ordering_tf_kernels.h5'
@@ -39,7 +39,7 @@ def identity_block(input_tensor, kernel_size, filters, stage, block, trainable=T
 
     nb_filter1, nb_filter2, nb_filter3 = filters
     
-    if image_data_format() == 'channels_last':
+    if K.image_data_format() == 'channels_last':
         bn_axis = 3
     else:
         bn_axis = 1
@@ -68,7 +68,7 @@ def identity_block_td(input_tensor, kernel_size, filters, stage, block, trainabl
     # identity block time distributed
 
     nb_filter1, nb_filter2, nb_filter3 = filters
-    if image_data_format() == 'channels_last':
+    if K.image_data_format() == 'channels_last':
         bn_axis = 3
     else:
         bn_axis = 1
@@ -127,7 +127,7 @@ def conv_block_td(input_tensor, kernel_size, filters, stage, block, input_shape,
     # conv block time distributed
 
     nb_filter1, nb_filter2, nb_filter3 = filters
-    if image_data_format() == 'channels_last':
+    if K.image_data_format() == 'channels_last':
         bn_axis = 3
     else:
         bn_axis = 1
